@@ -1,0 +1,30 @@
+---
+const { name, class: classes = '' } = Astro.props;
+---
+{ name === 'geometry' ? (
+  <svg viewBox="0 0 64 64" class={classes} fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="32 4 60 16 52 52 12 52 4 16 32 4" />
+    <path d="M32 4v48" />
+    <path d="M4 16h56" />
+    <path d="M12 52h40" />
+  </svg>
+) : name === 'layers' ? (
+  <svg viewBox="0 0 64 64" class={classes} fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 26l24-14 24 14-24 14L8 26z" />
+    <path d="M8 38l24-14 24 14" />
+    <path d="M8 50l24-14 24 14" />
+  </svg>
+) : name === 'publication' ? (
+  <svg viewBox="0 0 64 64" class={classes} fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="12" y="10" width="40" height="44" rx="4" />
+    <path d="M20 18h24" />
+    <path d="M20 26h24" />
+    <path d="M20 34h24" />
+    <path d="M20 42h16" />
+  </svg>
+) : (
+  <svg viewBox="0 0 24 24" class={classes} fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <path d="M8 12l2 2 4-4" />
+  </svg>
+)}

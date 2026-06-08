@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import Icon from '../components/ui/Icon.astro';
+import { getCollection } from 'astro:content';
+
+interface FeatureItem {
+  data: {
+    title: string;
+    description: string;
+    icon: 'geometry' | 'layers' | 'publication';
+  };
+}
+
+const features = await getCollection('features') as FeatureItem[];
+---
+<BaseLayout>
+  <section id="home" class="mx-auto flex w-full max-w-6xl flex-col gap-16 px-6 pb-20 pt-16 md:px-8 lg:pt-24">
+    <div class="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+      <div class="space-y-8">
+        <p class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.4em] text-cyan-200/90">
+          IIIT-B Math Club
+        </p>
+        <div class="space-y-6">
+          <p class="text-sm uppercase tracking-[0.4em] text-slate-400">Mathematics Club of IIIT-B</p>
+          <h1 class="text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">
+            Pioneers
+            <span class="block text-3xl text-slate-300 md:text-4xl">Where curiosity meets rigour.</span>
+          </h1>
+          <p class="max-w-2xl text-lg leading-8 text-slate-300/90">
+            Established a few years back, the mathematics club creates a space for like-minded problem solvers who love deep thinking across algebra, geometry, analysis, and beyond.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+          <Button href="#events">Explore Events</Button>
+          <Button href="#magazine" variant="secondary">Read the Magazine</Button>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-3">
+          <div class="rounded-3xl bg-slate-950/80 px-5 py-4 text-center text-sm text-slate-300 shadow-glow">
+            <p class="text-2xl font-semibold text-white">Integral Cup</p>
+            <p class="mt-2">Monthly problem solving league.</p>
+          </div>
+          <div class="rounded-3xl bg-slate-950/80 px-5 py-4 text-center text-sm text-slate-300 shadow-glow">
+            <p class="text-2xl font-semibold text-white">Synergy</p>
+            <p class="mt-2">Collaboration events for budding mathematicians.</p>
+          </div>
+          <div class="rounded-3xl bg-slate-950/80 px-5 py-4 text-center text-sm text-slate-300 shadow-glow">
+            <p class="text-2xl font-semibold text-white">Infin8</p>
+            <p class="mt-2">Competitive challenges with a creative twist.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative isolate overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 p-8 shadow-glow md:p-10">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(20,184,166,0.18),_transparent_25%)]" />
+        <div class="relative grid gap-6">
+          <div class="flex items-center gap-4 rounded-3xl border border-slate-700/60 bg-slate-950/80 p-6">
+            <div class="flex h-16 w-16 items-center justify-center rounded-3xl bg-accent/10 text-accent">
+              <Icon name="geometry" class="h-8 w-8" />
+            </div>
+            <div>
+              <p class="text-sm uppercase tracking-[0.3em] text-slate-400">Core Identity</p>
+              <p class="mt-2 text-lg font-semibold text-white">Rigour & exploration</p>
+            </div>
+          </div>
+          <div class="grid gap-5 rounded-[2rem] border border-white/10 bg-slate-950/80 p-6">
+            <div class="flex items-center justify-between gap-4 text-slate-200">
+              <div>
+                <p class="text-sm uppercase tracking-[0.3em] text-slate-400">Community</p>
+                <p class="mt-2 text-xl font-semibold text-white">A welcoming club for all levels.</p>
+              </div>
+              <div class="rounded-3xl bg-accent/10 p-3 text-accent">
+                <Icon name="layers" class="h-6 w-6" />
+              </div>
+            </div>
+            <p class="text-sm leading-6 text-slate-400">
+              The club blends conceptual problem solving, competitions, and resources to help every member grow in mathematical thinking.
+            </p>
+          </div>
+          <div class="rounded-[2rem] bg-gradient-to-br from-accent/10 via-transparent to-white/5 p-6 text-slate-200">
+            <p class="text-sm uppercase tracking-[0.3em] text-slate-400">Magazine in progress</p>
+            <p class="mt-3 text-xl font-semibold text-white">Bi-monthly stories, puzzles, and discoveries.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="about" class="grid gap-10 rounded-[2rem] border border-white/10 bg-white/5 p-10 shadow-glow md:grid-cols-[0.9fr_1.1fr]">
+      <div class="space-y-6">
+        <p class="text-sm uppercase tracking-[0.4em] text-slate-400">About Us</p>
+        <h2 class="max-w-2xl text-3xl font-semibold text-white md:text-4xl">A strong community built around mathematical curiosity.</h2>
+        <p class="text-slate-300/90 leading-8">
+          Pioneers brings together students who enjoy solving problems, discussing theory, and building intuition across all branches of mathematics. We host open events, collaborative sessions, and themed competitions to keep the spirit of discovery alive.
+        </p>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div class="section-card">
+          <p class="text-sm uppercase tracking-[0.35em] text-slate-400">Scholarship</p>
+          <p class="mt-4 text-lg font-semibold text-white">Deep dives into elegant concepts.</p>
+        </div>
+        <div class="section-card">
+          <p class="text-sm uppercase tracking-[0.35em] text-slate-400">Support</p>
+          <p class="mt-4 text-lg font-semibold text-white">Mentorship for new and returning members.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="events" class="space-y-8">
+      <div class="space-y-3">
+        <p class="text-sm uppercase tracking-[0.4em] text-accent/80">Explore Events</p>
+        <h2 class="text-3xl font-semibold text-white md:text-4xl">Events designed to challenge and inspire.</h2>
+      </div>
+      <div class="grid gap-5 lg:grid-cols-3">
+        {features.map((feature) => (
+          <article class="section-card">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-slate-950/80 text-accent shadow-lg shadow-accent/10">
+              <Icon name={feature.data.icon} class="h-7 w-7" />
+            </div>
+            <h3 class="text-2xl font-semibold text-white">{feature.data.title}</h3>
+            <p class="mt-4 text-slate-300 leading-7">{feature.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="magazine" class="grid gap-8 rounded-[2rem] border border-white/10 bg-white/5 p-10 shadow-glow md:grid-cols-[1.1fr_0.9fr]">
+      <div class="space-y-6">
+        <p class="text-sm uppercase tracking-[0.4em] text-slate-400">Magazine</p>
+        <h2 class="text-3xl font-semibold text-white md:text-4xl">Bi-monthly magazine in progress.</h2>
+        <p class="text-slate-300/90 leading-8">
+          The Pioneers magazine is a curated space for puzzles, essays, and mathematical insight. It is designed to bring fresh, accessible content to the IITB community and beyond.
+        </p>
+      </div>
+      <div class="rounded-[2rem] bg-slate-950/80 p-8 text-slate-300">
+        <div class="mb-6 flex items-start gap-4">
+          <div class="mt-1 h-12 w-12 rounded-3xl bg-accent/10 text-accent grid place-items-center">
+            <Icon name="publication" class="h-6 w-6" />
+          </div>
+          <div>
+            <p class="text-sm uppercase tracking-[0.35em] text-slate-400">Inside the issue</p>
+            <p class="mt-2 text-lg font-semibold text-white">Puzzles, club stories, and mathematics in culture.</p>
+          </div>
+        </div>
+        <ul class="space-y-4 text-slate-300/90">
+          <li>New problem categories for stage events.</li>
+          <li>Highlights from recent competitions.</li>
+          <li>Interviews with student organizers.</li>
+        </ul>
+      </div>
+    </section>
+  </section>
+</BaseLayout>
